@@ -28,5 +28,6 @@ public class MyList <E> {
         }
 
     }
-    private void 
+
+
 }
