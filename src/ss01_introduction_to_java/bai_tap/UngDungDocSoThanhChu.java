@@ -25,7 +25,6 @@ public class UngDungDocSoThanhChu {
                 }
 
         if (so>=10 && so<20){
-            ;
 
         switch (so){
             case 1:

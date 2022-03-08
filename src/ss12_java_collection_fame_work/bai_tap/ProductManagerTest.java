@@ -1,5 +1,7 @@
 package ss12_java_collection_fame_work.bai_tap;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProductManagerTest {
@@ -10,9 +12,9 @@ public class ProductManagerTest {
         boolean flag = true;
         do {
 
-            System.out.println("1. them sản phẩm \n" +
+            System.out.println("1. Thêm sản phẩm \n" +
                     "2.Sửa thông tin sản phẩm theo id \n" +
-                    "3. Xoá sản phẩm theo id \n " +
+                    "3.Xoá sản phẩm theo id \n" +
                     "4.Hiển thị danh sách sản phẩm \n" +
                     "5.Tìm kiếm sản phẩm theo tên \n" +
                     "6.Sắp xếp sản phẩm tăng dần, giảm dần theo giá");
@@ -40,7 +42,12 @@ public class ProductManagerTest {
                     productManager.search();
                     break;
                 case 6:
-                    System.out.println("sắp xếp sản phẩm:");
+                    System.out.println("sắp xếp sản phẩm tăng dần theo giá:");
+                    productManager.arrange();
+                    break;
+                case 7:
+                    System.out.println("sắp xếp sản phẩm giảm dần theo giá");
+                    productManager.arrange2();
                     break;
                 default:
                     flag = false;
