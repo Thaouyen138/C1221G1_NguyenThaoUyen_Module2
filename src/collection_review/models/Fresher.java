@@ -15,6 +15,9 @@ public class Fresher  extends Candidates{
         this.education = education;
     }
 
+    public Fresher(int id, String firstName, String lastName, String eBD, String address, String phone, String email, int time, String frRank) {
+    }
+
     public int getGraduatedTime() {
         return graduatedTime;
     }
