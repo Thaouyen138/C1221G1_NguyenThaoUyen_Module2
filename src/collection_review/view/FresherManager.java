@@ -11,11 +11,19 @@ public class FresherManager {
     private List<Fresher> fresherList = new ArrayList<>();
     Fresher fresher = new Fresher();
 
-    public List<Fresher> getFresherList() {
+    public FresherManager() {
+
+    }
+
+    private List<Fresher> getFresherList() {
         return fresherList;
     }
 
     public void setFresherList(List<Fresher> fresherList) {
+        this.fresherList = fresherList;
+    }
+
+    public FresherManager(List<Fresher> fresherList) {
         this.fresherList = fresherList;
     }
 
@@ -141,5 +149,30 @@ public class FresherManager {
             }
         }
         display(searchFr);
+    }
+    public void edit(){
+        System.out.println("nhập id:");
+        int idf=Integer.parseInt(scanner.nextLine());
+        for (int i=0;i<fresherList.size();i++){
+            if (fresherList.get(i).getCandidatesId()==idf){
+                System.out.println("nhập họ cần sửa:");
+                fresherList.get(i).setFirstName(scanner.nextLine());
+                System.out.println("nhập tên cần sửa:");
+                fresherList.get(i).setLastName(scanner.nextLine());
+                System.out.println("nhập năm sinh:");
+                fresherList.get(i).setBirthday(scanner.nextLine());
+                System.out.println("địa chỉ:");
+                fresherList.get(i).setAddress(scanner.nextLine());
+                System.out.println("sđt:");
+                fresherList.get(i).setPhone(scanner.nextLine());
+                System.out.println("email:");
+                fresherList.get(i).setEmail(scanner.nextLine());
+                System.out.println("tgian tốt nghiệp:");
+                fresherList.get(i).setGraduatedTime(scanner.nextInt());
+                System.out.println("loại tốt nghiệp:");
+                fresherList.get(i).setGraduatedRank(scanner.nextLine());
+            }
+        }
+
     }
 }

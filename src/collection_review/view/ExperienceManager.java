@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ExperienceManager {
-    List<Experience> experiences = new ArrayList<>();
+     private List<Experience> experiences = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
     public ExperienceManager() {

@@ -28,7 +28,7 @@ public class Controller {
                     fresherManager.add();
                     break;
                 case 3:
-
+                    fresherManager.edit();
                     break;
                 case 4:
                     System.out.println("CANDIDATE SEARCHING!:\n" +
