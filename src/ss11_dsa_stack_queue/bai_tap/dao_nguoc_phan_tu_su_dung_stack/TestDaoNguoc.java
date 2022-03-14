@@ -15,7 +15,7 @@ public class TestDaoNguoc {
         }
         String output = "";
         while (!stack.isEmpty()){
-            output+=stack.pop();
+            output += stack.pop();
         }
         System.out.println(output);
     }
