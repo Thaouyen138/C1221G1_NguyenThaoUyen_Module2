@@ -13,6 +13,9 @@ public class Experience extends Candidates {
         this.professionalSkill = professionalSkill;
     }
 
+    public Experience(int id, String firstName, String lastName, String eBD, String address, String phone, String email, String majors, String semester, String universityName) {
+    }
+
     public int getExplnYears() {
         return explnYears;
     }

@@ -1,7 +1,10 @@
 package collection_review.controller;
 
+import collection_review.models.Fresher;
+import collection_review.models.Intern;
 import collection_review.view.ExperienceManager;
 import collection_review.view.FresherManager;
+import collection_review.view.InternManager;
 
 import java.util.Scanner;
 
@@ -10,6 +13,7 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         ExperienceManager experienceManager = new ExperienceManager();
         FresherManager fresherManager = new FresherManager();
+        InternManager internManager = new InternManager();
         boolean flag = true;
         do {
             System.out.println("CANDIDATE MANAGEMENT SYSTEM!:\n" +
@@ -25,10 +29,10 @@ public class Controller {
                     experienceManager.add();
                    break;
                 case 2:
-                    fresherManager.add();
+                    fresherManager.addFr();
                     break;
                 case 3:
-                    fresherManager.edit();
+                    internManager.add();
                     break;
                 case 4:
                     System.out.println("CANDIDATE SEARCHING!:\n" +
@@ -39,13 +43,16 @@ public class Controller {
                     int chooseMenu1 = Integer.parseInt(scanner.nextLine());
                     switch (chooseMenu1) {
                         case 0:
-                            experienceManager.display();
+                            experienceManager.displayExi();
                             experienceManager.search();
                             break;
                         case 1:
-                            fresherManager.search();
+                            fresherManager.displayExf();
+                            fresherManager.searchingFr();
                             break;
                         case 2:
+                            internManager.displayI();
+                            internManager.search();
                             break;
                         default:
                             flag = false;

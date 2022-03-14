@@ -1,6 +1,6 @@
 package collection_review.models;
 
-public class Fresher  extends Candidates{
+public class Fresher  extends Candidates {
     private int graduatedTime;
     private String graduatedRank;
     private String education;
@@ -41,4 +41,5 @@ public class Fresher  extends Candidates{
     public void setEducation(String education) {
         this.education = education;
     }
+
 }

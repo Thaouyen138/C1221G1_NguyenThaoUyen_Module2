@@ -1,7 +1,6 @@
 package collection_review.view;
 
 import collection_review.models.Fresher;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,10 +11,13 @@ public class FresherManager {
     Fresher fresher = new Fresher();
 
     public FresherManager() {
-
     }
 
-    private List<Fresher> getFresherList() {
+    public FresherManager(List<Fresher> fresherList) {
+        this.fresherList = fresherList;
+    }
+
+    public List<Fresher> getFresherList() {
         return fresherList;
     }
 
@@ -23,54 +25,47 @@ public class FresherManager {
         this.fresherList = fresherList;
     }
 
-    public FresherManager(List<Fresher> fresherList) {
-        this.fresherList = fresherList;
-    }
-
-    public void add() {
-        System.out.println("nhập id:");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("nhập họ:");
-        String firstName = scanner.nextLine();
-        System.out.println("Nhập tên");
-        String lastName = scanner.nextLine();
-
+    public void addFr() {
         boolean flag = true;
-        String eBD;
-        do {
-            System.out.println("nhập năm sinh:");
-            eBD = scanner.nextLine();
-            if (eBD.length() == 4) {
-                int check = Integer.parseInt(eBD);
-                if (check > 1900) {
-                    flag = false;
-                }
-            }
-
-        }
-        while (flag);
-        System.out.println("nhập địa chỉ:");
-        String address = scanner.nextLine();
         boolean flag1 = true;
-        String phone;
+        boolean flag2 = true;
+        boolean flag3 = true;
+        System.out.println("Fresher candidate!");
+        System.out.println("Enter Candidate id!");
+        int frId = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter First name!");
+        String frfName = scanner.nextLine();
+        System.out.println("Enter Last name");
+        String frlName = scanner.nextLine();
+        String frbD;
         do {
-            System.out.println("nhập số điện thoại:");
-            phone = scanner.nextLine();
-            if (phone.length() >= 10) {
+            System.out.println("Enter Birth date (Please enter YYYY!)");
+            frbD = scanner.nextLine();
+            if (frbD.length() == 4) {
+                flag = false;
+            }
+        } while (flag);
+        System.out.println("Enter Address!");
+        String frAdd = scanner.nextLine();
+        String frP;
+        do {
+            System.out.println("Enter phone number (Please enter more than 10 characters!)");
+            frP = scanner.nextLine();
+            if (frP.length() >= 10) {
                 flag1 = false;
             }
         } while (flag1);
-        boolean flag2 = true;
-        String email;
+        String frE;
         do {
-            System.out.println("nhập email:");
-            email = scanner.nextLine();
-            if (email.contains("@")) {
-                flag2 = false;
+            System.out.println("Enter email (Please enter <account_name>@<domain>!)");
+            frE = scanner.nextLine();
+            if (frE.contains("@")) {
+                flag3 = false;
             }
-        } while (flag2);
-        System.out.println("thời gian tốt nghiệp:");
-        int time=Integer.parseInt(scanner.nextLine());
+        }
+        while (flag3);
+        System.out.println("Enter graduated time!");
+        int frTime = Integer.parseInt(scanner.nextLine());
         do {
             System.out.println("CHOOSE RANK OF GRADUATION!:\n" +
                     "1. Excellence!\n" +
@@ -84,32 +79,58 @@ public class FresherManager {
                     fresherGraduationOfList(1);
                     frRank = fresher.getGraduatedRank();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(id, firstName, lastName,eBD, address, phone, email, time, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 case 2:
                     fresherGraduationOfList(2);
                     frRank = fresher.getGraduatedRank();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(id, firstName, lastName,eBD, address, phone, email, time, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 case 3:
                     fresherGraduationOfList(3);
                     frRank = fresher.getGraduatedRank();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(id, firstName, lastName,eBD, address, phone, email, time, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 case 4:
                     fresherGraduationOfList(4);
                     frRank = fresher.getGraduatedRank();
                     System.out.println("Add succesction!");
-                    fresherList.add(new Fresher(id, firstName, lastName,eBD, address, phone, email, time, frRank));
+                    fresherList.add(new Fresher(frId, frfName, frlName, frbD, frAdd, frP, frE, frTime, frRank));
                     break;
                 default:
-                    flag2 = false;
+                    flag = false;
             }
             break;
         } while (flag2);
+
     }
+
+    public void searchingFr() {
+        List<Fresher> searchFr = new ArrayList<>();
+        System.out.println("Enter name to search!");
+        String searchName = scanner.nextLine();
+        for (Fresher fr : fresherList) {
+            if (fr.getFirstName().contains(searchName) || fr.getLastName().contains(searchName)) {
+                searchFr.add(fr);
+            }
+        }
+        displayEx(searchFr);
+    }
+
+    public void displayEx(List<Fresher> fresherList1) {
+        if (fresherList1.size() == 0) {
+            System.out.println("not found candidate!");
+        } else {
+            System.out.println("candidate find it:");
+            for (Fresher fr : fresherList1) {
+                System.out.println(fr);
+            }
+        }
+
+    }
+
     public void fresherGraduationOfList(int chooseGraduation) {
         List<String> fresherGraduationOfList = new ArrayList<>();
         fresherGraduationOfList.add("1. Excellence");
@@ -125,54 +146,11 @@ public class FresherManager {
         } else {
             fresher.setGraduatedRank("Poor");
         }
-
     }
-    public void display(List<Fresher> freshers){
-        if (freshers.size()==0){
-            System.out.println("không tìm thấy thí sinh:");
 
-        }else{
-            System.out.println("thí sinh tìm thấy là:");
-            for (Fresher a:fresherList
-                 ) {
-                System.out.println(a);
-            }
+    public void displayExf() {
+        for (Fresher f : fresherList) {
+            System.out.println(f);
         }
-
-    }public void  search(){
-        List<Fresher> searchFr = new ArrayList<>();
-        System.out.println("Enter name to search!");
-        String searchName = scanner.nextLine();
-        for (Fresher fr : fresherList) {
-            if (fr.getFirstName().contains(searchName) || fr.getLastName().contains(searchName)) {
-                searchFr.add(fr);
-            }
-        }
-        display(searchFr);
-    }
-    public void edit(){
-        System.out.println("nhập id:");
-        int idf=Integer.parseInt(scanner.nextLine());
-        for (int i=0;i<fresherList.size();i++){
-            if (fresherList.get(i).getCandidatesId()==idf){
-                System.out.println("nhập họ cần sửa:");
-                fresherList.get(i).setFirstName(scanner.nextLine());
-                System.out.println("nhập tên cần sửa:");
-                fresherList.get(i).setLastName(scanner.nextLine());
-                System.out.println("nhập năm sinh:");
-                fresherList.get(i).setBirthday(scanner.nextLine());
-                System.out.println("địa chỉ:");
-                fresherList.get(i).setAddress(scanner.nextLine());
-                System.out.println("sđt:");
-                fresherList.get(i).setPhone(scanner.nextLine());
-                System.out.println("email:");
-                fresherList.get(i).setEmail(scanner.nextLine());
-                System.out.println("tgian tốt nghiệp:");
-                fresherList.get(i).setGraduatedTime(scanner.nextInt());
-                System.out.println("loại tốt nghiệp:");
-                fresherList.get(i).setGraduatedRank(scanner.nextLine());
-            }
-        }
-
     }
 }
