@@ -57,7 +57,9 @@ public class ProductManager {
         System.out.println("nhập tên sản phẩm cần tìm:");
         String names = scanner.nextLine();
         for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getName().contains(names)) {
+            if (products.get(i).getName().contains
+
+                    (names)) {
                 System.out.println("sản phẩm cần tìm :" + products.get(i).getId() + ","
                         + products.get(i).getName() + ","
                         + products.get(i).getPrice());

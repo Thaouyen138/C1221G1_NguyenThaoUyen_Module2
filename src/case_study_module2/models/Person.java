@@ -1,9 +1,9 @@
 package case_study_module2.models;
 
 public abstract class Person {
-    private String nameEmployee;
-    private String birthDayEmployee;
-    private String sexEmployee;
+    private String name;
+    private String birthDay;
+    private String sex;
     private String identityCard;
     private String phone;
     private String email;
@@ -12,36 +12,36 @@ public abstract class Person {
     }
 
     public Person(String nameEmployee, String birthDayEmployee, String sexEmployee, String identityCard, String phone, String email) {
-        this.nameEmployee = nameEmployee;
-        this.birthDayEmployee = birthDayEmployee;
-        this.sexEmployee = sexEmployee;
+        this.name = nameEmployee;
+        this.birthDay= birthDayEmployee;
+        this.sex = sexEmployee;
         this.identityCard = identityCard;
         this.phone = phone;
         this.email = email;
     }
 
-    public String getNameEmployee() {
-        return nameEmployee;
+    public String getName() {
+        return name;
     }
 
-    public void setNameEmployee(String nameEmployee) {
-        this.nameEmployee = nameEmployee;
+    public void setName(String name) {
+        this.name= name;
     }
 
-    public String getBirthDayEmployee() {
-        return birthDayEmployee;
+    public String getBirthDay() {
+        return birthDay;
     }
 
-    public void setBirthDayEmployee(String birthDayEmployee) {
-        this.birthDayEmployee = birthDayEmployee;
+    public void setBirthDay(String birthDay) {
+        this.birthDay= birthDay;
     }
 
-    public String getSexEmployee() {
-        return sexEmployee;
+    public String getSex() {
+        return sex;
     }
 
-    public void setSexEmployee(String sexEmployee) {
-        this.sexEmployee = sexEmployee;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getIdentityCard() {
@@ -71,9 +71,9 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "nameEmployee='" + nameEmployee + '\'' +
-                ", birthDayEmployee='" + birthDayEmployee + '\'' +
-                ", sexEmployee='" + sexEmployee + '\'' +
+                "nameEmployee='" + name+ '\'' +
+                ", birthDayEmployee='" + birthDay + '\'' +
+                ", sexEmployee='" + sex + '\'' +
                 ", identityCard='" + identityCard + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
