@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
         do {
             System.out.println("enter type customer: " +
                     "1.diamond\n"+
-                    "2.plantinium\n" +
+                    "2.platinum\n" +
                     "3.gold\n"+
                     "4.silver\n"+
                     "5.member");

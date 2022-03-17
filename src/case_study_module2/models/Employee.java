@@ -60,7 +60,7 @@ public class Employee extends Person {
     public String toString() {
         return "Employee{" +
                 "name ='" + getName() + '\'' +
-                "birthdate='" + getBirthDay() + '\'' +
+                "birthday='" + getBirthDay() + '\'' +
                 "sex='" + getSex() + '\'' +
                 "identityCard='" + getIdentityCard() + '\'' +
                 "phone='" + getPhone() + '\'' +
