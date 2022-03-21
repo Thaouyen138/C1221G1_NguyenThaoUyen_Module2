@@ -4,15 +4,15 @@ public abstract class Facility {
     //Tên dịch vụ, Diện tích sử dụng, Chi phí thuê,
     // Số lượng người tối đa, Kiểu thuê (bao gồm thuê theo năm, tháng, ngày, giờ).
     private String nameService;
-    private String areaUsed;
-    private String cost;
-    private String maxPeople;
+    private double areaUsed;
+    private double cost;
+    private int maxPeople;
     private String typeRent;
 
     public Facility() {
     }
 
-    public Facility(String nameService, String areaUsed, String cost, String maxPeople, String typeRent) {
+    public Facility(String nameService, double areaUsed, double cost, int maxPeople, String typeRent) {
         this.nameService = nameService;
         this.areaUsed = areaUsed;
         this.cost = cost;
@@ -28,27 +28,27 @@ public abstract class Facility {
         this.nameService = nameService;
     }
 
-    public String getAreaUsed() {
+    public double getAreaUsed() {
         return areaUsed;
     }
 
-    public void setAreaUsed(String areaUsed) {
+    public void setAreaUsed(double areaUsed) {
         this.areaUsed = areaUsed;
     }
 
-    public String getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(String cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 
-    public String getMaxPeople() {
+    public int getMaxPeople() {
         return maxPeople;
     }
 
-    public void setMaxPeople(String maxPeople) {
+    public void setMaxPeople(int maxPeople) {
         this.maxPeople = maxPeople;
     }
 
@@ -59,14 +59,18 @@ public abstract class Facility {
     public void setTypeRent(String typeRent) {
         this.typeRent = typeRent;
     }
+
     @Override
     public String toString() {
         return
                 "nameService='" + nameService + '\'' +
-                ", areaUsed='" + areaUsed + '\'' +
-                ", cost='" + cost + '\'' +
-                ", maxPeople='" + maxPeople + '\'' +
+                ", areaUsed=" + areaUsed +
+                ", cost=" + cost +
+                ", maxPeople=" + maxPeople +
                 ", typeRent='" + typeRent + '\''
                 ;
+    }
+    public String getInFor(){
+        return nameService+","+areaUsed+","+cost+","+maxPeople+","+typeRent+",";
     }
 }

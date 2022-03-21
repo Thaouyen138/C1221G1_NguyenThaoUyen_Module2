@@ -14,8 +14,8 @@ public class Customer extends Person {
         this.address = address;
     }
 
-    public Customer(String nameEmployee, String birthDayEmployee, String sexEmployee, String identityCard, String phone, String email, String idCustomer, String typeCustomer, String address) {
-        super(nameEmployee, birthDayEmployee, sexEmployee, identityCard, phone, email);
+    public Customer(String name, String birthDay, String gender, String identityCard, String phone, String email, String idCustomer, String typeCustomer, String address) {
+        super(name, birthDay, gender, identityCard, phone, email);
         this.idCustomer = idCustomer;
         this.typeCustomer = typeCustomer;
         this.address = address;
@@ -47,15 +47,14 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "name='" + getName() + '\'' +
-                "birth='" + getBirthDay() + '\'' +
-                "sex='" + getSex() + '\'' +
-                "cmnd='" + getIdentityCard() + '\'' +
-                "phone='" + getPhone() + '\'' +
-                "mail='" + getEmail() + '\'' +
-                " typeCustomer='" + typeCustomer + '\'' +
+        return "Customer{" + super.toString()+
+                "idCustomer='" + idCustomer + '\'' +
+                ", typeCustomer='" + typeCustomer + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    public String getInFor(){
+        return super.getInFor()+","+idCustomer+","+typeCustomer+","+address;
     }
 }

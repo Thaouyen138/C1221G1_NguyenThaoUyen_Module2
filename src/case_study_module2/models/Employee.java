@@ -16,8 +16,8 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public Employee(String nameEmployee, String birthDayEmployee, String sexEmployee, String identityCard, String phone, String email, String idEmployee, String level, String position, String salary) {
-        super(nameEmployee, birthDayEmployee, sexEmployee, identityCard, phone, email);
+    public Employee(String name, String birthDay, String gender, String identityCard, String phone, String email, String idEmployee, String level, String position, String salary) {
+        super(name, birthDay, gender, identityCard, phone, email);
         this.idEmployee = idEmployee;
         this.level = level;
         this.position = position;
@@ -58,17 +58,14 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "name ='" + getName() + '\'' +
-                "birthday='" + getBirthDay() + '\'' +
-                "sex='" + getSex() + '\'' +
-                "identityCard='" + getIdentityCard() + '\'' +
-                "phone='" + getPhone() + '\'' +
-                "email='" + getEmail() + '\'' +
+        return "Employee{" + super.toString()+
                 "idEmployee='" + idEmployee + '\'' +
                 ", level='" + level + '\'' +
                 ", position='" + position + '\'' +
                 ", salary='" + salary + '\'' +
                 '}';
+    }
+    public String getInFor(){
+        return super.getInFor()+","+idEmployee+","+level+","+position+","+salary;
     }
 }

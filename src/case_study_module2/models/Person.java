@@ -3,7 +3,7 @@ package case_study_module2.models;
 public abstract class Person {
     private String name;
     private String birthDay;
-    private String sex;
+    private String gender;
     private String identityCard;
     private String phone;
     private String email;
@@ -11,10 +11,10 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String nameEmployee, String birthDayEmployee, String sexEmployee, String identityCard, String phone, String email) {
-        this.name = nameEmployee;
-        this.birthDay= birthDayEmployee;
-        this.sex = sexEmployee;
+    public Person(String name, String birthDay, String gender, String identityCard, String phone, String email) {
+        this.name = name;
+        this.birthDay = birthDay;
+        this.gender = gender;
         this.identityCard = identityCard;
         this.phone = phone;
         this.email = email;
@@ -25,7 +25,7 @@ public abstract class Person {
     }
 
     public void setName(String name) {
-        this.name= name;
+        this.name = name;
     }
 
     public String getBirthDay() {
@@ -33,15 +33,15 @@ public abstract class Person {
     }
 
     public void setBirthDay(String birthDay) {
-        this.birthDay= birthDay;
+        this.birthDay = birthDay;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getIdentityCard() {
@@ -71,12 +71,17 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "nameEmployee='" + name+ '\'' +
-                ", birthDayEmployee='" + birthDay + '\'' +
-                ", sexEmployee='" + sex + '\'' +
+                "name='" + name + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                ", gender='" + gender + '\'' +
                 ", identityCard='" + identityCard + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    public String getInFor(){
+        return name+","+birthDay+","+gender+","+identityCard+","+phone+","+email+",";
+    }
 }
+

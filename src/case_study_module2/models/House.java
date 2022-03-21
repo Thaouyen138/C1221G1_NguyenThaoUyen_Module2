@@ -2,18 +2,17 @@ package case_study_module2.models;
 
 public class House  extends Facility{
     private String standardHouse;
-    private String floorHouse;
+    private int floorHouse;
 
     public House() {
     }
 
-    public House(String standardHouse, String floorHouse) {
+    public House(String standardHouse, int floorHouse) {
         this.standardHouse = standardHouse;
-
         this.floorHouse = floorHouse;
     }
 
-    public House(String nameService, String areaUsed, String cost, String maxPeople, String typeRent, String standardHouse, String floorHouse) {
+    public House(String nameService, double areaUsed, double cost, int maxPeople, String typeRent, String standardHouse, int floorHouse) {
         super(nameService, areaUsed, cost, maxPeople, typeRent);
         this.standardHouse = standardHouse;
         this.floorHouse = floorHouse;
@@ -28,13 +27,11 @@ public class House  extends Facility{
         this.standardHouse = standardHouse;
     }
 
-
-
-    public String getFloorHouse() {
+    public int getFloorHouse() {
         return floorHouse;
     }
 
-    public void setFloorHouse(String floorHouse) {
+    public void setFloorHouse(int floorHouse) {
         this.floorHouse = floorHouse;
     }
 
@@ -42,7 +39,10 @@ public class House  extends Facility{
     public String toString() {
         return "House{" + super.toString()+
                 "standardHouse='" + standardHouse + '\'' +
-                ", floorHouse='" + floorHouse + '\'' +
+                ", floorHouse=" + floorHouse +
                 '}';
+    }
+    public String getInFo(){
+        return super.getInFor()+standardHouse+","+floorHouse;
     }
 }

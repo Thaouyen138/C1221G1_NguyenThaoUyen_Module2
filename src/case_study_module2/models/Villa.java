@@ -2,30 +2,23 @@ package case_study_module2.models;
 
 public class Villa extends Facility {
     private String standardVilla;
-    private String swimmingPool;
-    private String floorVilla;
+    private Double swimmingPool;
+    private int floorVilla;
 
     public Villa() {
     }
 
-    public Villa(String standardVilla, String floorVilla) {
+    public Villa(String standardVilla, Double swimmingPool, int floorVilla) {
         this.standardVilla = standardVilla;
+        this.swimmingPool = swimmingPool;
         this.floorVilla = floorVilla;
     }
 
-    public Villa(String nameService, String areaUsed, String cost, String maxPeople, String typeRent, String standardVilla,String swimmingPool, String floorVilla) {
+    public Villa(String nameService, double areaUsed, double cost, int maxPeople, String typeRent, String standardVilla, Double swimmingPool, int floorVilla) {
         super(nameService, areaUsed, cost, maxPeople, typeRent);
         this.standardVilla = standardVilla;
-        this.swimmingPool =swimmingPool;
-        this.floorVilla = floorVilla;
-    }
-
-    public String getSwimmingPool() {
-        return swimmingPool;
-    }
-
-    public void setSwimmingPool(String swimmingPool) {
         this.swimmingPool = swimmingPool;
+        this.floorVilla = floorVilla;
     }
 
     public String getStandardVilla() {
@@ -36,11 +29,19 @@ public class Villa extends Facility {
         this.standardVilla = standardVilla;
     }
 
-    public String getFloorVilla() {
+    public Double getSwimmingPool() {
+        return swimmingPool;
+    }
+
+    public void setSwimmingPool(Double swimmingPool) {
+        this.swimmingPool = swimmingPool;
+    }
+
+    public int getFloorVilla() {
         return floorVilla;
     }
 
-    public void setFloorVilla(String floorVilla) {
+    public void setFloorVilla(int floorVilla) {
         this.floorVilla = floorVilla;
     }
 
@@ -48,7 +49,11 @@ public class Villa extends Facility {
     public String toString() {
         return "Villa{" + super.toString()+
                 "standardVilla='" + standardVilla + '\'' +
-                ", floorVilla='" + floorVilla + '\'' +
+                ", swimmingPool=" + swimmingPool +
+                ", floorVilla=" + floorVilla +
                 '}';
+    }
+    public String getInFor(){
+        return super.getInFor()+standardVilla+","+ swimmingPool+","+floorVilla;
     }
 }

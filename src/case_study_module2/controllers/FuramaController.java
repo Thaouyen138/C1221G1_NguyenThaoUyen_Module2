@@ -1,10 +1,8 @@
 package case_study_module2.controllers;
 
-import case_study_module2.models.Employee;
-import case_study_module2.services.CustomerServiceImpl;
-import case_study_module2.services.EmployeeServiceImpl;
-import case_study_module2.services.FacilityService;
-import case_study_module2.services.FacilityServiceImpl;
+import case_study_module2.services.impl.CustomerServiceImpl;
+import case_study_module2.services.impl.EmployeeServiceImpl;
+import case_study_module2.services.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -41,16 +39,17 @@ public class FuramaController {
                 case 3:
                     facilityManagement();
                 case 4:
-                    System.out.println("1.Display list Booking\n" +
-                            "2.add new Booking\n" +
-                            "3.edit Booking\n" +
-                            "4.return main menu");
+                    System.out.println("1.add new Booking\n" +
+                            "2.Display list booking\n" +
+                            "3.Create new constracts\n" +
+                            "4.Display list contracts\n"+
+                            "5.Edit contracts\n"+
+                            "6.Return main menu");
                     break;
                 case 5:
-                    System.out.println("1.Display list Promotion\n" +
-                            "2.add new Promotion\n" +
-                            "3.edit Promotion\n" +
-                            "4.return main menu");
+                    System.out.println("1.Display list customers use service\n" +
+                            "2.Display list customers get voucher\n" +
+                            "3.return main menu");
                     break;
                 default:
                     flag = false;

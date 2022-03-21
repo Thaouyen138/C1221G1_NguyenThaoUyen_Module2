@@ -1,14 +1,14 @@
 package case_study_module2.services;
 
-public interface FacilityService{
-    public void display();
+public interface FacilityService {
+    void display();
 
-    public void addVilla();
+    void addVilla();
 
-    public void addHouse();
+    void addHouse();
 
-    public void addRoom();
+    void addRoom();
 
-    public void displayMaintain();
+    void displayMaintain();
 
 }

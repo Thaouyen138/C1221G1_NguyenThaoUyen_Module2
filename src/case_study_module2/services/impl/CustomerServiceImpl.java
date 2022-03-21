@@ -1,6 +1,8 @@
-package case_study_module2.services;
+package case_study_module2.services.impl;
 
 import case_study_module2.models.Customer;
+import case_study_module2.services.CustomerService;
+import case_study_module2.utils.ReadAndWrite;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -9,24 +11,29 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-    private List<Customer> customerList = new LinkedList<>();
+    private static List<Customer> customerList = new LinkedList<>();
+
+    static {
+        customerList=ReadAndWrite.readCustomerListFromCSV();
+    }
+//    List<Customer> customers = ReadAndWrite.readCustomerListFromCSV();
     Scanner scanner = new Scanner(System.in);
 
     @Override
     public void add() {
-        System.out.println(" enter id customer");
+        System.out.print(" enter id customer");
         String id = scanner.nextLine();
-        System.out.println("enter name:");
+        System.out.print("enter name:");
         String name = scanner.nextLine();
-        System.out.println("enter birthday");
+        System.out.print("enter birthday");
         String birth = scanner.nextLine();
-        System.out.println("enter sex:");
+        System.out.print("enter gender:");
         String sex = scanner.nextLine();
-        System.out.println("enter identity");
+        System.out.print("enter identity");
         String identity = scanner.nextLine();
-        System.out.println("enter phone:");
+        System.out.print("enter phone:");
         String phone = scanner.nextLine();
-        System.out.println("enter mail:");
+        System.out.print("enter mail:");
         String mail = scanner.nextLine();
 
         int chooseType;
@@ -58,9 +65,10 @@ public class CustomerServiceImpl implements CustomerService {
                     break;
             }break;
         }while (chooseType<1||chooseType>5);
-        System.out.println("enter address:");
+        System.out.print("enter address:");
         String address = scanner.nextLine();
         customerList.add(new Customer(id, name, birth, sex, identity, phone, mail, typeCustomer, address));
+        ReadAndWrite.writeCustomer(customerList,false);
     }
 
     @Override
@@ -74,25 +82,25 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void edit() {
         display();
-        System.out.println("enter id customer repair");
+        System.out.print("enter id customer repair");
         String id = scanner.nextLine();
         for (int i = 0; i < customerList.size(); i++) {
             if (customerList.get(i).getIdCustomer().equals(id)) {
-                System.out.println("enter name:");
+                System.out.print("enter name:");
                 customerList.get(i).setName(scanner.nextLine());
-                System.out.println("enter birthday:");
+                System.out.print("enter birthday:");
                 customerList.get(i).setBirthDay(scanner.nextLine());
-                System.out.println("enter sex");
-                customerList.get(i).setSex(scanner.nextLine());
-                System.out.println("enter identity:");
+                System.out.print("enter gender");
+                customerList.get(i).setGender(scanner.nextLine());
+                System.out.print("enter identity:");
                 customerList.get(i).setIdentityCard(scanner.nextLine());
-                System.out.println("enter phone");
+                System.out.print("enter phone");
                 customerList.get(i).setPhone(scanner.nextLine());
-                System.out.println("enter mail:");
+                System.out.print("enter mail:");
                 customerList.get(i).setEmail(scanner.nextLine());
-                System.out.println("enter typecustomer:");
+                System.out.print("enter typecustomer:");
                 customerList.get(i).setTypeCustomer(scanner.nextLine());
-                System.out.println("enter địa chỉ:");
+                System.out.print("enter địa chỉ:");
                 customerList.get(i).setAddress(scanner.nextLine());
 
             }
